@@ -43,4 +43,4 @@ cd app && gleam run -m lustre/dev start
 
 The server runs on port 3000 and the client app is served on port 1234. We use
 the dev tools' proxy to proxy both the websocket and the request for the server
-component runtime bundle to the backend.
+component runtime bundle to the backend.# lustre-store-pattern-demo
