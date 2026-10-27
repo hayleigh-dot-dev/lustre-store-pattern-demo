@@ -1,0 +1,29 @@
+name = "app"
+version = "1.0.0"
+
+[dependencies]
+gleam_json = ">= 3.1.0 and < 4.0.0"
+gleam_stdlib = ">= 1.0.0 and < 2.0.0"
+lustre = { path = "../../../lustre-labs/lustre" }
+gerbil = ">= 1.0.0 and < 2.0.0"
+
+[dev_dependencies]
+gleeunit = ">= 1.0.0 and < 2.0.0"
+lustre_dev_tools = ">= 2.4.0 and < 3.0.0"
+
+[tools.lustre.html]
+body = """
+<lustre-server-component
+  route="/ws/store" 
+  provides="time count">
+  <div id="app"></div>
+</lustre-server-component>
+"""
+
+scripts = [{ src = "/static/server-component.mjs", type = "module" }]
+
+[tools.lustre.dev]
+proxy = [
+  { from = "/ws", to = "http://localhost:3000/ws" },
+  { from = "/static", to = "http://localhost:3000/static" },
+]
